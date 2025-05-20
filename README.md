@@ -68,8 +68,8 @@ This program is built using the [Anchor Framework](https://www.anchor-lang.com/)
 2. **Clone the repository (if applicable):**
 
    ```bash
-   git clone https://github.com/agistry-dev/agistry-sol-contracts
-   cd agistry-sol-contracts
+   git clone https://github.com/agistry-dev/agistry-framework-v1
+   cd agistry-framework-v1
    ```
 
 3. **Build the program:**
