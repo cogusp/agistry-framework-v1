@@ -1,5 +1,7 @@
 # Agistry - Decentralized Adapter Registry for AI Agents (Solana Program)
 
+![banner](./assets/banner.png)
+
 Agistry is a decentralized registry built on the Solana blockchain that allows AI agents to discover and interface with off-chain tools and APIs in a standardized and trustworthy manner. This repository contains the core Solana smart contract (program) for the Agistry registry.
 
 **Problem Agistry Solves:**
@@ -16,6 +18,8 @@ Most AI agents in Web3 still rely on custom-built, insecure adapters to call off
 - **Standardizing access** to these off-chain services through a defined Adapter Interface Specification (AIS), typically using OpenAPI.
 - (Future) Enabling **proofs** for verifiable off-chain interactions.
 - Promoting **composability** and scalability for AI agent-tool ecosystems.
+
+![process_flow](./assets/process_flow.png)
 
 ## Features of the Solana Program
 
